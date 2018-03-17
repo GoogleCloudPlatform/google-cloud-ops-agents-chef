@@ -15,7 +15,6 @@ This cookbook was tested on the following operating systems:
 * Ubuntu 12.04, 14.04, 16.04, 16.10
 * SLES 11-sp4, 12-sp2
 * openSUSE 13
-* Windows Server 2008 R2, 2012 R2, 2012 R2 Core, 2016 R2, 2016 R2 Core
 
 ## Example
 
