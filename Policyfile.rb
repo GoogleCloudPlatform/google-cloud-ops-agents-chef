@@ -12,16 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name 'google_chef_agents'
-maintainer 'Google'
-license 'Apache-2.0'
-description 'Installs/Configures google_chef_agents'
-version '0.1.0'
-chef_version '>= 15.0'
-issues_url 'https://github.com/GoogleCloudPlatform/chef-google-logging/issues'
-source_url 'https://github.com/GoogleCloudPlatform/chef-google-logging'
+# Policyfile.rb - Describe how you want Chef Infra Client to build your system.
+#
+# For more information on the Policyfile feature, visit
+# https://docs.chef.io/policyfile/
 
-# What OS are supported
-%w( amazon centos debian oracle redhat suse opensuseleap ubuntu windows ).each do |os|
-  supports os
-end
+# A name that describes what the system you're building with Chef does.
+name 'google_chef_agents'
+
+# Where to find external cookbooks:
+default_source :supermarket
+
+# run_list: chef-client will run these recipes in the order specified.
+run_list 'google_chef_agents::default'
+
+# Specify a custom source for a single cookbook:
+cookbook 'google_chef_agents', path: '.'
