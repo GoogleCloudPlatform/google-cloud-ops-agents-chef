@@ -49,9 +49,8 @@ jobs:
           - rhel-8
           - rhel-7
           - sles-12
-          # disabled: https://github.com/BlueMedora/google_chef_agents/issues/50
-          #- sles-15
-          #- opensuse-leap
+          - sles-15
+          - opensuse-leap
 
         exclude:
           # invalid combos
@@ -64,6 +63,12 @@ jobs:
             agent_type: logging
           - distro: windows-2019
             agent_type: monitoring
+          # disabled due to a suse repo bug that prevents the agent
+          # from starting
+          - agent_type: "logging"
+            distro: "sles-15"
+          - agent_type: "logging"
+            distro: "opensuse-leap"
 
     steps:
       - name: Checkout
