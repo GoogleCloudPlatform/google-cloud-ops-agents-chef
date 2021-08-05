@@ -1,10 +1,10 @@
 # Cloud Operations Chef Agents
 
-[![Linux Continuous Integration](https://github.com/BlueMedora/google_chef_agents/actions/workflows/linux.yml/badge.svg)](https://github.com/BlueMedora/google_chef_agents/actions/workflows/linux.yml)
-[![Windows Continuous Integration](https://github.com/BlueMedora/google_chef_agents/actions/workflows/windows.yml/badge.svg)](https://github.com/BlueMedora/google_chef_agents/actions/workflows/windows.yml)
-[![Cookstyle](https://github.com/BlueMedora/google_chef_agents/actions/workflows/cookstyle.yml/badge.svg)](https://github.com/BlueMedora/google_chef_agents/actions/workflows/cookstyle.yml)
-[![Shellcheck](https://github.com/BlueMedora/google_chef_agents/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/BlueMedora/google_chef_agents/actions/workflows/shellcheck.yml)
-[![License Check](https://github.com/BlueMedora/google_chef_agents/actions/workflows/license.yml/badge.svg)](https://github.com/BlueMedora/google_chef_agents/actions/workflows/license.yml)
+[![Linux Continuous Integration](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/linux.yml/badge.svg)](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/linux.yml)
+[![Windows Continuous Integration](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/windows.yml/badge.svg)](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/windows.yml)
+[![Cookstyle](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/cookstyle.yml/badge.svg)](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/cookstyle.yml)
+[![Shellcheck](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/shellcheck.yml)
+[![License Check](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/license.yml/badge.svg)](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/license.yml)
 
 ## Description
 
