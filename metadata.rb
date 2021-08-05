@@ -18,8 +18,8 @@ license 'Apache-2.0'
 description 'Installs/Configures google_chef_agents'
 version '0.1.0'
 chef_version '>= 15.0'
-issues_url 'https://github.com/GoogleCloudPlatform/chef-google-logging/issues'
-source_url 'https://github.com/GoogleCloudPlatform/chef-google-logging'
+issues_url 'https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/issues'
+source_url 'https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef'
 
 # What OS are supported
 %w( amazon centos debian oracle redhat suse opensuseleap ubuntu windows ).each do |os|
