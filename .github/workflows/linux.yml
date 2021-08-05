@@ -21,7 +21,7 @@ on:
       - ci
 jobs:
   test:
-    runs-on: [self-hosted, x64]
+    runs-on: ubuntu-20.04
     env:
       CHEF_GCP_ZONE: us-east1-b
     strategy:

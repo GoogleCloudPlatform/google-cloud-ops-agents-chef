@@ -22,7 +22,7 @@ on:
 jobs:
   shellcheck:
     name: Cookstyle
-    runs-on: [self-hosted, x64]
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: Install CINC workstation

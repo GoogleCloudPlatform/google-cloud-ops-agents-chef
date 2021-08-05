@@ -26,7 +26,7 @@ on:
 jobs:
   shellcheck:
     name: Shellcheck
-    runs-on: [self-hosted, x64]
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: Shellcheck .github/scripts/
