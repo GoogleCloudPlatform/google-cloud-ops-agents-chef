@@ -1,9 +1,10 @@
-# Changelog
+# google_chef_agents CHANGELOG
 
-## 0.1.1 (2018-03-17)
+This file is used to list changes made in each version of the google_chef_agents cookbook.
 
-Initial release
+## 0.1.0
 
-- Stackdriver agent install
-    * RedHat based systems
-    * Debian based systems
+Initial release.
+
+- change 0
+- change 1
