@@ -29,6 +29,11 @@ https://cloud.google.com/stackdriver/docs/solutions/agents/ops-agent#access
 
 ## Install Cookbook
 
+### Cloning the Cookbook
+To clone the cookbook from your repo to your workstation's chef/cookbooks folder, please use:
+`git clone git@github.com:GoogleCloudPlatform/google-cloud-ops-agents-chef.git google_chef_agents`
+from within the cookbooks folder itself.
+
 ### Install Cookbook from Source
 - Copy to your Chef server
   - `knife cookbook upload google_chef_agents`
