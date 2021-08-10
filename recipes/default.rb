@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # Validate the agent type
-unless %w(google-cloud-ops ops-agent monitoring logging).include? node['final_agent_type']
+unless %w(google-cloud-ops monitoring logging).include? node['final_agent_type']
   Chef::Log.fatal("Received invalid agent type: '#{node['agent_type']}'. The Cloud Ops Chef cookbook supports the following agents: 'monitoring', 'logging' and 'ops-agent'.")
 end
 # For windows, only the ops-agent is supported
@@ -26,7 +26,7 @@ unless %w(present absent).include? node['package_state']
   Chef::Log.fatal("Received invalid package state: '#{node['package_state']}'. The Cloud Ops Chef cookbook supports the following package states: 'present' and 'absent'.")
 end
 
-if (%w(google-cloud-ops ops-agent).include? node['final_agent_type']) && !node['additional_config_dir'].empty?
+if (%w(google-cloud-ops).include? node['final_agent_type']) && !node['additional_config_dir'].empty?
   Chef::Log.fatal("The ops agent does not support additional configurations. additional_config_dir must be empty when the agent_type is 'ops-agent'.")
 end
 
