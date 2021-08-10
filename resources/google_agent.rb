@@ -42,9 +42,12 @@ action :install do
     end
     service servicename do
       action [:start, :enable]
+      # TODO: When CINC fixes the bug related to this, uncomment the below line
       # user 'root'
     end
     # The user parameter for service isn't working, hack to bypass
+    # TODO: once the service command above has the bug fixed and can
+    # specify user properly, remove this.
     bash 'hack service' do
       user 'root'
       code "systemctl enable #{servicename}"
