@@ -1,4 +1,4 @@
-# Cloud Operations Chef Agents
+# Google Cloud Operations Agents Chef Integration
 
 [![Linux Continuous Integration](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/linux.yml/badge.svg)](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/linux.yml)
 [![Windows Continuous Integration](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/windows.yml/badge.svg)](https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/actions/workflows/windows.yml)
