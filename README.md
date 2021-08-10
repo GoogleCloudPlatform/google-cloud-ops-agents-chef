@@ -86,7 +86,7 @@ parameter main_config will need to be defined in the role or via the
 bootstrap -j flag to point to the directory where these custom config files
 live. Bootstrap examples:
 
-- This will set version to latest, package_state to present, agent_type to ops-agent, and setting the main_config file path
+- To install the latest version of Ops Agent with a custom configuration, run the following command. This sets `version` to `latest`, `package_state` to `present`, `agent_type` to `ops-agent`, and setting the `main_config` file path:
   - Linux: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"main_config\": \"/some/path/to/config/files\"}"
   - Windows: knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"main_config\": \"C:/some/path/to/config/files\"}"
 
