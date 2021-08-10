@@ -72,7 +72,7 @@ Create a role defining the attributes above, and assign it to the node from
 the Chef server or via bootstrap. Bootstrap examples:
 
 - To install the latest Ops Agent with the default configuration, run the following command. This sets `version` to `latest`, `package_state` to `present`, and `agent_type` to `ops-agent`:
-  - Linux: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V
+  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V`
   - Windows: knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V
 
 - This will set version to 2.0.1, package_state to present, and agent_type to ops-agent
