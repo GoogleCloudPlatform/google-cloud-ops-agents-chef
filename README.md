@@ -52,7 +52,7 @@ from within the cookbooks folder itself.
 ### Version
 
 - version=`latest`
-  - This setting makes it easier to keep the agent version up to date, however it does come with a potential risk. When a new major version is released, the policy may install the latest version of the agent from the new major release, which may introduce breaking changes. For production environments, consider using the version=MAJOR_VERSION.*.* setting below for safer agent deployments.
+  - This setting makes it easier to keep the agent version up to date, however it does come with a potential risk. When a new major version is released, the policy may install the latest version of the agent from the new major release, which may introduce breaking changes. For production environments, consider using the version=`MAJOR_VERSION.*.*` setting below for safer agent deployments.
 
 - version=`MAJOR_VERSION.*.*`
   - When a new major release is out, this setting ensures that only the latest version from the specified major version is installed, which avoids accidentally introducing breaking changes. This is recommended for production environments to ensure safer agent deployments.
