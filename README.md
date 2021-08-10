@@ -95,7 +95,7 @@ By making use of the package_state attribute in a role of passed via the
 bootstrap -j flag, with a setting of 'absent', the Ops Agent can be removed
 from the host.
 
-- This will set version to latest, package_state to absent, and agent_type to ops-agent
+To uninstall the Ops Agent, run the following command. This sets `version` to `latest`, `package_state` to `absent`, and `agent_type` to `ops-agent`
   - Linux: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"package_state\": \"absent\"}"
   - Windows: knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"package_state\": \"absent\"}"
 
