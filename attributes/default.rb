@@ -14,12 +14,12 @@
 
 # What type of agent? Valid options are 'ops-agent', 'monitoring', and 'logging'
 # Default is to install the ops-agent
-# Should be set to MAJOR.*.* in production environments, as described in the README
-default[:agent_type] = 'ops-agent'
+default[:agent_type] = ''
 # Is the agent installed?
 # This should be present to have installed, and set absent to not be installed
 default[:package_state] = 'present'
 # What version to install? Valid options are 'latest', MAJOR_VERSION, MAJOR.MINOR.PATCH as described in the README.md file.
+# Should be set to MAJOR.*.* in production environments, as described in the README
 # Defaults to latest
 default[:version] = 'latest'
 # Optional config file parameters.

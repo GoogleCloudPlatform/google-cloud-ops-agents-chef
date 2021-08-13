@@ -21,8 +21,6 @@ describe service('google-fluentd') do
     it { should be_enabled }
     it { should be_running }
   else
-    # commented out the installed check
-    # because it is not reporting correctly
     it { should_not be_installed }
     it { should_not be_enabled }
     it { should_not be_running }
@@ -33,7 +31,8 @@ describe file('/etc/google-fluentd/google-fluentd.conf') do
   if node['package_state'] == 'present'
     it { should exist }
 
-    # when custom config is set, ensure the file was placed correctly
+    # When custom config is set, ensure the file was placed correctly
+    # For CI this is test/integration/linux/logging/config/google-fluentd.conf
     if node['main_config'] != ''
       its('owner') { should eq 'root' }
       its('group') { should eq 'root' }
@@ -43,6 +42,8 @@ describe file('/etc/google-fluentd/google-fluentd.conf') do
 end
 
 if node['package_state'] == 'present' && node['additional_config_dir'] != ''
+  # When additional_config_dir is specified, ensure that files are placed correctly
+  # For CI this is test/integration/linux/logging/config/plugins/custom_config.conf
   describe file('/etc/google-fluentd/plugin/custom_config.conf') do
     it { should exist }
     its('owner') { should eq 'root' }

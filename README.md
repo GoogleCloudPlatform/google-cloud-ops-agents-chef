@@ -72,12 +72,12 @@ Create a role defining the attributes above, and assign it to the node from
 the Chef server or via bootstrap. Bootstrap examples:
 
 - To install the latest Ops Agent with the default configuration, run the following command. This sets `version` to `latest`, `package_state` to `present`, and `agent_type` to `ops-agent`:
-  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V`
-  - Windows: knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V
+  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"ops-agent\"}"`
+  - Windows: `knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"ops-agent\"}"`
 
 - To install the `2.0.1` version of Ops Agent with the default configuration, run the following command. This sets `version` to `2.0.1`, `package_state` to `present`, and `agent_type` to `ops-agent`:
-  - Linux: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"version\": \"2.0.1\"}"
-  - Windows: knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"version\": \"2.0.1\"}"
+  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"version\": \"2.0.1\"}"`
+  - Windows: `knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"version\": \"2.0.1\"}"`
 
 #### Ops Agent with Custom Configuration
 In addition to creating a role or bootstrapping as described above, the 
@@ -87,21 +87,17 @@ bootstrap -j flag to point to the directory where these custom config files
 live. Bootstrap examples:
 
 - To install the latest version of Ops Agent with a custom configuration, run the following command. This sets `version` to `latest`, `package_state` to `present`, `agent_type` to `ops-agent`, and setting the `main_config` file path:
-  - Linux: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"main_config\": \"/some/path/to/config/files\"}"
-  - Windows: knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"main_config\": \"C:/some/path/to/config/files\"}"
+  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"main_config\": \"/some/path/to/config/files\"}"`
+  - Windows: `knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"main_config\": \"C:/some/path/to/config/files\"}"`
 
 #### Remove Ops Agent
-By making use of the package_state attribute in a role of passed via the
-bootstrap -j flag, with a setting of 'absent', the Ops Agent can be removed
+By making use of the package_state attribute in a role passed via the
+bootstrap -j flag, with a setting of absent, the Ops Agent can be removed
 from the host.
 
 To uninstall the Ops Agent, run the following command. This sets `version` to `latest`, `package_state` to `absent`, and `agent_type` to `ops-agent`
-  - Linux: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"package_state\": \"absent\"}"
-  - Windows: knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"package_state\": \"absent\"}"
-
-- This will set version to latest, package_state to absent, agent_type to ops-agent, and setting the main_config file path
-  - Linux: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"main_config\": \"/some/path/to/config/files\", \"package_state\": \"absent\"}"
-  - Windows: knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"main_config\": \"C:/some/path/to/config/files\", \"package_state\": \"absent\"}"
+  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"package_state\": \"absent\"}"`
+  - Windows: `knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"package_state\": \"absent\"}"`
 
 #### Install Monitoring Agent
 In order to install the monitoring agent, the role or bootstrap -j needs to
@@ -110,11 +106,11 @@ above for the ops_agent. The optional 'additiona_config_dir' parameter can
 also be defined to provide additional plugins. This agent is only supported
 on Linux. Bootstrap examples:
 
-- This will set version to latest, package_state to to present for install and absent for uninstall, and agent_type to monitoring
-  - Linux Install: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\"}"
-  - Linux Uninstall: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\", \"package_state\": \"absent\"}"
-  - Linux Install With Plugins: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\", \"additional_config_dir\": \"/some/path\"}"
-  - Linux Uninstall With Plugins: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\", \"additional_config_dir\": \"/some/path\", \"package_state\": \"absent\"}"
+- To install the latest Monitoring Agent, run the following command. This sets `version` to `latest`, `package_state` to `present`, and `agent_type` to `monitoring`
+  - Linux Install: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\"}"`
+  - Linux Uninstall: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\", \"package_state\": \"absent\"}"`
+  - Linux Install With Plugins: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\", \"additional_config_dir\": \"/some/path\"}"`
+  - Linux Uninstall With Plugins: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\", \"additional_config_dir\": \"/some/path\", \"package_state\": \"absent\"}"`
 
 
 #### Install Logging Agent
@@ -122,11 +118,11 @@ Management of the logging agent is exactly like that of the monitoring
 agent, with the exception of changing the agent_type to 'logging'.
 This agent is only supported on Linux. Bootstrap examples:
 
-- This will set version to latest, package_state to to present for install and absent for uninstall, and agent_type to logging
-  - Linux Install: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\"}"
-  - Linux Uninstall: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\", \"package_state\": \"absent\"}"
-  - Linux Install With Plugins: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\", \"additional_config_dir\": \"/some/path\"}"
-  - Linux Uninstall With Plugins: knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\", \"additional_config_dir\": \"/some/path\", \"package_state\": \"absent\"}"
+- To install the Logging Agent, run the following command. This sets `version` to `latest`, `package_state` to `present`, and `agent_type` to `logging`
+  - Linux Install: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\"}"`
+  - Linux Uninstall: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\", \"package_state\": \"absent\"}"`
+  - Linux Install With Plugins: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\", \"additional_config_dir\": \"/some/path\"}"`
+  - Linux Uninstall With Plugins: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\", \"additional_config_dir\": \"/some/path\", \"package_state\": \"absent\"}"`
 
 ## License
 
@@ -144,4 +140,4 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations under the License.
 ```
-Additionally a copy of this license has been provided in the LICENSE file
+Additionally a copy of this license has been provided in the [LICENSE](LICENSE) file

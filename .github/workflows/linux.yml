@@ -58,11 +58,6 @@ jobs:
             version: "2.0.1"
           - agent_type: monitoring
             version: "2.0.1"
-          # Windows is ops-agent only
-          - distro: windows-2019
-            agent_type: logging
-          - distro: windows-2019
-            agent_type: monitoring
           # disabled due to a suse repo bug that prevents the agent
           # from starting
           - agent_type: "logging"

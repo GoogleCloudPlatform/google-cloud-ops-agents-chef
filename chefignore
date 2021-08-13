@@ -9,7 +9,7 @@ ehthumbs.db
 Icon?
 nohup.out
 Thumbs.db
-.envrc
+.env*
 
 # EDITORS #
 ###########

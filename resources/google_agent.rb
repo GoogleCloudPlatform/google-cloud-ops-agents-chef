@@ -143,11 +143,20 @@ action :uninstall do
       action :nothing
     end
     # Uninstall is not properly removing these files, so we do it here
-    %w(/etc/rc.d/init.d/google-fluentd /run/systemd/generator.late/google-fluentd.service /etc/rc.d/init.d/stackdriver-agent /run/systemd/generator.late/stackdriver-agent.service).each do |svc_file|
-      file svc_file do
-        action :delete
-        only_if { ::File.exist?(svc_file) }
-      end
+    if node['final_agent_type'] == 'monitoring'
+      svc_file = '/etc/rc.d/init.d/stackdriver-agent'
+      unit_file = '/run/systemd/generator.late/stackdriver-agent.service'
+    elsif node['final_agent_type'] == 'logging'
+      svc_file = '/etc/rc.d/init.d/google-fluentd'
+      unit_file = '/run/systemd/generator.late/google-fluentd.service'
+    end
+    file svc_file do
+      action :delete
+      only_if { ::File.exist?(svc_file) }
+    end
+    file unit_file do
+      action :delete
+      only_if { ::File.exist?(unit_file) }
     end
   when 'windows'
     powershell_script node['file_url_name'] do

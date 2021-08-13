@@ -15,4 +15,4 @@
 # See https://cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/configuration
 # for more details.
 
-# This config represents a custom configuration deployed by puppet
+# This config represents a custom configuration deployed by Chef

@@ -16,6 +16,7 @@
 unless %w(google-cloud-ops monitoring logging).include? node['final_agent_type']
   Chef::Log.fatal("Received invalid agent type: '#{node['agent_type']}'. The Cloud Ops Chef cookbook supports the following agents: 'monitoring', 'logging' and 'ops-agent'.")
 end
+
 # For windows, only the ops-agent is supported
 if platform_family?('windows') && (%w(monitoring logging).include? node['final_agent_type'])
   Chef::Log.fatal("The agent type was specified as '#{node['agent_type']}', but only 'ops-agent' is supported on Windows")

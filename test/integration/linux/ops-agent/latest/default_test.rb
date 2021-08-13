@@ -41,7 +41,8 @@ describe file('/etc/google-cloud-ops-agent/config.yaml') do
   if node['package_state'] == 'present'
     it { should exist }
 
-    # when custom config is set, ensure the file was placed correctly
+    # When custom config is set, ensure the file was placed correctly
+    # For CI this is test/integration/linux/ops-agent/config/config.yaml
     if node['main_config'] != ''
       its('owner') { should eq 'root' }
       its('group') { should eq 'root' }

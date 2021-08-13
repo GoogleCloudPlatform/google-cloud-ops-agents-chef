@@ -21,8 +21,6 @@ describe service('stackdriver-agent') do
     it { should be_enabled }
     it { should be_running }
   else
-    # commented out the installed check
-    # because it is not reporting correctly
     it { should_not be_installed }
     it { should_not be_enabled }
     it { should_not be_running }
@@ -33,7 +31,8 @@ describe file('/etc/stackdriver/collectd.conf') do
   if node['package_state'] == 'present'
     it { should exist }
 
-    # when custom config is set, ensure the file was placed correctly
+    # When custom config is set, ensure the file was placed correctly
+    # For CI this is test/integration/linux/monitoring/config/collectd.conf
     if node['main_config'] != ''
       its('owner') { should eq 'root' }
       its('group') { should eq 'root' }
@@ -43,6 +42,8 @@ describe file('/etc/stackdriver/collectd.conf') do
 end
 
 if node['package_state'] == 'present' && node['additional_config_dir'] != ''
+  # When additional_config_dir is set, ensure the files are placed correctly
+  # For CI this is test/integration/linux/monitoring/config/plugins/example_plugin.conf
   describe file('/etc/stackdriver/collectd.d/example_plugin.conf') do
     it { should exist }
     its('owner') { should eq 'root' }
