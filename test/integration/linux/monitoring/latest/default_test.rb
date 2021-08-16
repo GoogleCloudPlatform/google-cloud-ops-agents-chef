@@ -36,7 +36,7 @@ describe file('/etc/stackdriver/collectd.conf') do
     if node['main_config'] != ''
       its('owner') { should eq 'root' }
       its('group') { should eq 'root' }
-      its('sha256sum') { should eq '3728ed856744b0ac9afd78081e3147aec6f1f198d3a9307c43ed4beee0f9d188' }
+      its('sha256sum') { should eq '14050e7ae0d30867a005007e015b9a9ab570f74a15fa6ccbaae4e4707195495c' }
     end
   end
 end
@@ -48,6 +48,6 @@ if node['package_state'] == 'present' && node['additional_config_dir'] != ''
     it { should exist }
     its('owner') { should eq 'root' }
     its('group') { should eq 'root' }
-    its('sha256sum') { should eq '8b68d474a8115aab18e61eb877a7c8a16715cd8346c98c9d645ef0813fbcb02f' }
+    its('sha256sum') { should eq 'c05d2f664052abaaadb1b1baa9807fa6fd3c2ed9b419575671c911ecb7d3dd3c' }
   end
 end
