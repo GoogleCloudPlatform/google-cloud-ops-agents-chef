@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name 'google_chef_agents'
+name 'google_cloud_ops_agents_chef'
 maintainer 'Google'
 license 'Apache-2.0'
-description 'Installs/Configures google_chef_agents'
+description 'Installs/Configures google_cloud_ops_agents_chef'
 version '0.1.0'
 chef_version '>= 15.0'
 issues_url 'https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/issues'

@@ -45,10 +45,6 @@ jobs:
 
         exclude:
           # invalid combos
-          - agent_type: logging
-            version: "2.0.1"
-          - agent_type: monitoring
-            version: "2.0.1"
 
     steps:
       - name: Checkout
