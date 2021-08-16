@@ -18,8 +18,8 @@
 # then the software will update. If this was set to just install, changing the version
 # attribute would not result in servers being upgraded.
 default_action :upgrade
-resource_name :google_agent
-provides :google_agent
+resource_name :google_cloud_ops_agents
+provides :google_cloud_ops_agents
 unified_mode true
 
 # Install software, at the specified version

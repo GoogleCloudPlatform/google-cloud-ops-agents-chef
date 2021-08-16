@@ -40,10 +40,10 @@ end
 
 # If the package_state specifies present, we should be doing install or upgrade
 if node['package_state'] == 'present'
-  google_agent 'Download Software' do
+  google_cloud_ops_agents 'Download Software' do
     action :download
   end
-  google_agent 'Install Software' do
+  google_cloud_ops_agents 'Install Software' do
     action :install
   end
 
@@ -118,7 +118,7 @@ if node['package_state'] == 'present'
 
 # If it specifies absent, we should be doing uninstall
 elsif node['package_state'] == 'absent'
-  google_agent 'Uninstall Software' do
+  google_cloud_ops_agents 'Uninstall Software' do
     action :uninstall
   end
 # Otherwise, we need to display an error
