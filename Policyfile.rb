@@ -18,13 +18,13 @@
 # https://docs.chef.io/policyfile/
 
 # A name that describes what the system you're building with Chef does.
-name 'google_chef_agents'
+name 'google_cloud_ops_agents_chef'
 
 # Where to find external cookbooks:
 default_source :supermarket
 
 # run_list: chef-client will run these recipes in the order specified.
-run_list 'google_chef_agents::default'
+run_list 'google_cloud_ops_agents_chef::default'
 
 # Specify a custom source for a single cookbook:
-cookbook 'google_chef_agents', path: '.'
+cookbook 'google_cloud_ops_agents_chef', path: '.'

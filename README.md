@@ -31,13 +31,13 @@ https://cloud.google.com/stackdriver/docs/solutions/agents/ops-agent#access
 
 ### Cloning the Cookbook
 To clone the cookbook from your repo to your workstation's chef/cookbooks folder, please use:
-`git clone git@github.com:GoogleCloudPlatform/google-cloud-ops-agents-chef.git google_chef_agents`
+`git clone git@github.com:GoogleCloudPlatform/google-cloud-ops-agents-chef.git google_cloud_ops_agents_chef`
 from within the cookbooks folder itself.
 
 ### Install Cookbook from Source
 - Copy to your Chef server
-  - `knife cookbook upload google_chef_agents`
-- Verify: `knife cookbook show google_chef_agents`
+  - `knife cookbook upload google_cloud_ops_agents_chef`
+- Verify: `knife cookbook show google_cloud_ops_agents_chef`
 
 ## Usage
 
@@ -72,12 +72,12 @@ Create a role defining the attributes above, and assign it to the node from
 the Chef server or via bootstrap. Bootstrap examples:
 
 - To install the latest Ops Agent with the default configuration, run the following command. This sets `version` to `latest`, `package_state` to `present`, and `agent_type` to `ops-agent`:
-  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"ops-agent\"}"`
-  - Windows: `knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"ops-agent\"}"`
+  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"agent_type\": \"ops-agent\"}"`
+  - Windows: `knife bootstrap -o winrm <windows-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"agent_type\": \"ops-agent\"}"`
 
 - To install the `2.0.1` version of Ops Agent with the default configuration, run the following command. This sets `version` to `2.0.1`, `package_state` to `present`, and `agent_type` to `ops-agent`:
-  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"version\": \"2.0.1\"}"`
-  - Windows: `knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"version\": \"2.0.1\"}"`
+  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"version\": \"2.0.1\"}"`
+  - Windows: `knife bootstrap -o winrm <windows-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"version\": \"2.0.1\"}"`
 
 #### Ops Agent with Custom Configuration
 In addition to creating a role or bootstrapping as described above, the 
@@ -87,8 +87,8 @@ bootstrap -j flag to point to the directory where these custom config files
 live. Bootstrap examples:
 
 - To install the latest version of Ops Agent with a custom configuration, run the following command. This sets `version` to `latest`, `package_state` to `present`, `agent_type` to `ops-agent`, and setting the `main_config` file path:
-  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"main_config\": \"/some/path/to/config/files\"}"`
-  - Windows: `knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"main_config\": \"C:/some/path/to/config/files\"}"`
+  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"main_config\": \"/some/path/to/config/files\"}"`
+  - Windows: `knife bootstrap -o winrm <windows-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"main_config\": \"C:/some/path/to/config/files\"}"`
 
 #### Remove Ops Agent
 By making use of the package_state attribute in a role passed via the
@@ -96,8 +96,8 @@ bootstrap -j flag, with a setting of absent, the Ops Agent can be removed
 from the host.
 
 To uninstall the Ops Agent, run the following command. This sets `version` to `latest`, `package_state` to `absent`, and `agent_type` to `ops-agent`
-  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"package_state\": \"absent\"}"`
-  - Windows: `knife bootstrap -o winrm <windows-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"package_state\": \"absent\"}"`
+  - Linux: `knife bootstrap <linux-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"package_state\": \"absent\"}"`
+  - Windows: `knife bootstrap -o winrm <windows-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"package_state\": \"absent\"}"`
 
 #### Install Monitoring Agent
 In order to install the monitoring agent, the role or bootstrap -j needs to
@@ -107,10 +107,10 @@ also be defined to provide additional plugins. This agent is only supported
 on Linux. Bootstrap examples:
 
 - To install the latest Monitoring Agent, run the following command. This sets `version` to `latest`, `package_state` to `present`, and `agent_type` to `monitoring`
-  - Linux Install: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\"}"`
-  - Linux Uninstall: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\", \"package_state\": \"absent\"}"`
-  - Linux Install With Plugins: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\", \"additional_config_dir\": \"/some/path\"}"`
-  - Linux Uninstall With Plugins: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\", \"additional_config_dir\": \"/some/path\", \"package_state\": \"absent\"}"`
+  - Linux Install: `knife bootstrap <linux-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\"}"`
+  - Linux Uninstall: `knife bootstrap <linux-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\", \"package_state\": \"absent\"}"`
+  - Linux Install With Plugins: `knife bootstrap <linux-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\", \"additional_config_dir\": \"/some/path\"}"`
+  - Linux Uninstall With Plugins: `knife bootstrap <linux-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"agent_type\": \"monitoring\", \"additional_config_dir\": \"/some/path\", \"package_state\": \"absent\"}"`
 
 
 #### Install Logging Agent
@@ -119,10 +119,10 @@ agent, with the exception of changing the agent_type to 'logging'.
 This agent is only supported on Linux. Bootstrap examples:
 
 - To install the Logging Agent, run the following command. This sets `version` to `latest`, `package_state` to `present`, and `agent_type` to `logging`
-  - Linux Install: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\"}"`
-  - Linux Uninstall: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\", \"package_state\": \"absent\"}"`
-  - Linux Install With Plugins: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\", \"additional_config_dir\": \"/some/path\"}"`
-  - Linux Uninstall With Plugins: `knife bootstrap <linux-server-fqdn> -r 'google_chef_agents' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\", \"additional_config_dir\": \"/some/path\", \"package_state\": \"absent\"}"`
+  - Linux Install: `knife bootstrap <linux-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\"}"`
+  - Linux Uninstall: `knife bootstrap <linux-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\", \"package_state\": \"absent\"}"`
+  - Linux Install With Plugins: `knife bootstrap <linux-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\", \"additional_config_dir\": \"/some/path\"}"`
+  - Linux Uninstall With Plugins: `knife bootstrap <linux-server-fqdn> -r 'google_cloud_ops_agents_chef' -U <username> -P <password> -V -j "{\"agent_type\": \"logging\", \"additional_config_dir\": \"/some/path\", \"package_state\": \"absent\"}"`
 
 ## License
 
