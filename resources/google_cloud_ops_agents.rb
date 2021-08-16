@@ -151,7 +151,7 @@ action :uninstall do
       unit_file = '/run/systemd/generator.late/google-fluentd.service'
     end
     unless svc_file.nil? || unit_file.nil?
-    file svc_file do
+      file svc_file do
         action :delete
         only_if { ::File.exist?(svc_file) }
       end
