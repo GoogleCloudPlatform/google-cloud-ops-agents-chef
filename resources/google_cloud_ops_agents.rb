@@ -150,13 +150,15 @@ action :uninstall do
       svc_file = '/etc/rc.d/init.d/google-fluentd'
       unit_file = '/run/systemd/generator.late/google-fluentd.service'
     end
+    unless svc_file.nil? || unit_file.nil?
     file svc_file do
-      action :delete
-      only_if { ::File.exist?(svc_file) }
-    end
-    file unit_file do
-      action :delete
-      only_if { ::File.exist?(unit_file) }
+        action :delete
+        only_if { ::File.exist?(svc_file) }
+      end
+      file unit_file do
+        action :delete
+        only_if { ::File.exist?(unit_file) }
+      end
     end
   when 'windows'
     powershell_script node['file_url_name'] do
