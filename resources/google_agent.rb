@@ -32,8 +32,8 @@ action :install do
       only_if "./#{node['file_url_name']} --also-install --version=#{node['version']} --dry-run | grep -qi 'installation succeeded'" == 0
       user 'root'
     end
-    case node['final_agent_type']
-    when 'google-cloud-ops'
+    case node['agent_type']
+    when 'ops-agent'
       servicename = 'google-cloud-ops-agent'
     when 'monitoring'
       servicename = 'stackdriver-agent'
@@ -72,8 +72,8 @@ action :upgrade do
       only_if "./#{node['file_url_name']} --also-install --version=#{node['version']} --dry-run | grep -qi 'installation succeeded'" == 0
       user 'root'
     end
-    case node['final_agent_type']
-    when 'google-cloud-ops'
+    case node['agent_type']
+    when 'ops-agent'
       servicename = 'google-cloud-ops-agent'
     when 'monitoring'
       servicename = 'stackdriver-agent'
@@ -118,8 +118,8 @@ action :uninstall do
     end
     # Script does not stop logging or monitoring services
     # So we must do it manually
-    case node['final_agent_type']
-    when 'google-cloud-ops'
+    case node['agent_type']
+    when 'ops-agent'
       servicename = 'google-cloud-ops-agent'
     when 'monitoring'
       servicename = 'stackdriver-agent'
@@ -143,10 +143,10 @@ action :uninstall do
       action :nothing
     end
     # Uninstall is not properly removing these files, so we do it here
-    if node['final_agent_type'] == 'monitoring'
+    if node['agent_type'] == 'monitoring'
       svc_file = '/etc/rc.d/init.d/stackdriver-agent'
       unit_file = '/run/systemd/generator.late/stackdriver-agent.service'
-    elsif node['final_agent_type'] == 'logging'
+    elsif node['agent_type'] == 'logging'
       svc_file = '/etc/rc.d/init.d/google-fluentd'
       unit_file = '/run/systemd/generator.late/google-fluentd.service'
     end

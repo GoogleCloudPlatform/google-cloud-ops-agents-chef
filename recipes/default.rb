@@ -13,12 +13,12 @@
 # limitations under the License.
 
 # Validate the agent type
-unless %w(google-cloud-ops monitoring logging).include? node['final_agent_type']
+unless %w(ops-agent monitoring logging).include? node['agent_type']
   Chef::Log.fatal("Received invalid agent type: '#{node['agent_type']}'. The Cloud Ops Chef cookbook supports the following agents: 'monitoring', 'logging' and 'ops-agent'.")
 end
 
 # For windows, only the ops-agent is supported
-if platform_family?('windows') && (%w(monitoring logging).include? node['final_agent_type'])
+if platform_family?('windows') && (%w(monitoring logging).include? node['agent_type'])
   Chef::Log.fatal("The agent type was specified as '#{node['agent_type']}', but only 'ops-agent' is supported on Windows")
 end
 
@@ -27,7 +27,7 @@ unless %w(present absent).include? node['package_state']
   Chef::Log.fatal("Received invalid package state: '#{node['package_state']}'. The Cloud Ops Chef cookbook supports the following package states: 'present' and 'absent'.")
 end
 
-if (%w(google-cloud-ops).include? node['final_agent_type']) && !node['additional_config_dir'].empty?
+if (%w(ops-agent).include? node['agent_type']) && !node['additional_config_dir'].empty?
   Chef::Log.fatal("The ops agent does not support additional configurations. additional_config_dir must be empty when the agent_type is 'ops-agent'.")
 end
 
@@ -51,12 +51,12 @@ if node['package_state'] == 'present'
   config_path = 'C:/Program Files/Google/Cloud Operations/Ops Agent/config/config.yaml'
   plugins_path = ''
   unless platform_family?('windows')
-    if node['final_agent_type'] == 'google-cloud-ops'
+    if node['agent_type'] == 'ops-agent'
       config_path = '/etc/google-cloud-ops-agent/config.yaml'
-    elsif node['final_agent_type'] == 'monitoring'
+    elsif node['agent_type'] == 'monitoring'
       config_path = '/etc/stackdriver/collectd.conf'
       plugins_path = '/etc/stackdriver/collectd.d'
-    elsif node['final_agent_type'] == 'logging'
+    elsif node['agent_type'] == 'logging'
       config_path = '/etc/google-fluentd/google-fluentd.conf'
       plugins_path = '/etc/google-fluentd/plugin'
     end
