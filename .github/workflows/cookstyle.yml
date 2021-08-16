@@ -1,4 +1,4 @@
-# Copyright:: 2021 Google LLC
+# Copyright 2021 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,17 +11,23 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-name 'google_cloud_ops_agents_chef'
-maintainer 'Google'
-license 'Apache-2.0'
-description 'Installs/Configures google_cloud_ops_agents_chef'
-version '0.1.0'
-chef_version '>= 15.0'
-issues_url 'https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef/issues'
-source_url 'https://github.com/GoogleCloudPlatform/google-cloud-ops-agents-chef'
-
-# What OS are supported
-%w( amazon centos debian oracle redhat suse opensuseleap ubuntu windows ).each do |os|
-  supports os
-end
+---
+name: cookstyle
+on:
+  pull_request:
+  push:
+      branches:
+      - master
+      - ci
+jobs:
+  shellcheck:
+    name: Cookstyle
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install CINC workstation
+      run: curl -L https://omnitruck.cinc.sh/install.sh | sudo bash -s -- -P cinc-workstation -v 0.17 -c unstable
+      timeout-minutes: 40
+    - name: Run Cookstyle
+      run: cookstyle
+      timeout-minutes: 40
