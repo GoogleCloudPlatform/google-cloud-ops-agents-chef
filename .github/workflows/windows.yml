@@ -43,9 +43,6 @@ jobs:
           - windows-20h2-core
           - windows-2004-core
 
-        exclude:
-          # invalid combos
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
