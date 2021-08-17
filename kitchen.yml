@@ -86,6 +86,7 @@ driver:
     # https://www.googleapis.com/auth/monitoring
     - monitoring
   machine_type: "e2-medium"
+  auto_migrate: true
   disks:
     disk0:
       disk_type: pd-ssd
