@@ -31,17 +31,17 @@ jobs:
           - ops-agent
         version:
           - "2.0.1"
-          - latest
+          #- latest
         # distro is the platform name in kitchen.yml
         distro:
           - windows-2019
-          - windows-2019-core
-          - windows-2016
+          #- windows-2019-core
+          #- windows-2016
           - windows-2016-core
           - windows-2012r2
-          - windows-2012r2-core
-          - windows-20h2-core
-          - windows-2004-core
+          #- windows-2012r2-core
+          #- windows-20h2-core
+          #- windows-2004-core
 
     steps:
       - name: Checkout

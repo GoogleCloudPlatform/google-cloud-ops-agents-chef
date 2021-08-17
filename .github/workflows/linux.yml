@@ -29,28 +29,28 @@ jobs:
       matrix:
         agent_type:
           - ops-agent
-          - logging
-          - monitoring
+          #- logging
+          #- monitoring
         version:
           - "2.0.1"
           - latest
         # distro is the platform name in kitchen.yml
         distro:
           - ubuntu-20.04
-          - ubuntu-18.04
-          - ubuntu-16.04
+          #- ubuntu-18.04
+          #- ubuntu-16.04
           - debian-10
-          - debian-9
-          - centos-s8
-          - centos-8
+          #- debian-9
+          #- centos-s8
+          #- centos-8
           - centos-7
-          - almalinux-8
-          - rocky-linux-8
+          #- almalinux-8
+          #- rocky-linux-8
           - rhel-8
-          - rhel-7
-          - sles-12
+          #- rhel-7
+          #- sles-12
           - sles-15
-          - opensuse-leap
+          #- opensuse-leap
 
         exclude:
           # invalid combos
