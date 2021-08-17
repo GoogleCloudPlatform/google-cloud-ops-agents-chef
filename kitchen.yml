@@ -109,6 +109,9 @@ verifier:
   name: inspec
 
 transport:
+  connection_timeout: 10
+  connection_retries: 10
+  max_ssh_sessions: 1
   # this username needs to match the user specified in the ssh keypair
   username: <%= ENV['CHEF_SSH_USER'] %>
   ssh_key:
