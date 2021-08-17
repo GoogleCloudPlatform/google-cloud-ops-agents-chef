@@ -87,7 +87,7 @@ if node['package_state'] == 'present'
       end
     else
       # Failure due to incorrect file type
-      Chef::Log.fatal('The `main_config` attribute was set to an invalid value. It must either be a Chef template or a file ending in .yaml')
+      Chef::Log.fatal('The `main_config` attribute was set to an invalid value. It must either be a Chef template or a file ending in .yaml or .conf')
     end
   end
 
