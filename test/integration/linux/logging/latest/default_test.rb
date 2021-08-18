@@ -36,7 +36,7 @@ describe file('/etc/google-fluentd/google-fluentd.conf') do
     if node['main_config'] != ''
       its('owner') { should eq 'root' }
       its('group') { should eq 'root' }
-      its('sha256sum') { should eq '5b1802dc6a8f52f6e4e8de4ce30615e8b9076c92b31c60a11db8d0ea6bd5e6f2' }
+      its('sha256sum') { should eq '633492a8b40166009a06c7a495df2f08c24ed6c050554e67827e368ba27b6d4c' }
     end
   end
 end
@@ -48,6 +48,6 @@ if node['package_state'] == 'present' && node['additional_config_dir'] != ''
     it { should exist }
     its('owner') { should eq 'root' }
     its('group') { should eq 'root' }
-    its('sha256sum') { should eq '505623beffaac642dfa172f63ed68af72275b50a44760501a3ef62224bcd59a5' }
+    its('sha256sum') { should eq '203773873a0bccc50d2bc52a1dec9231a39c0d2091ef6c5f2875b82a5be68354' }
   end
 end

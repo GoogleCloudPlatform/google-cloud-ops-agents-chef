@@ -31,7 +31,5 @@ describe file('C:\Program Files\Google\cloud Operations\Ops Agent\config\config.
   if node['package_state'] == 'present'
     it { should exist }
     its('sha256sum') { should eq 'a8dd6a4312fb2d62aa11bccd612182033fd1b378b9bc6da8eef25cee54b15dd3' }
-  else
-    it { should_not exist }
   end
 end

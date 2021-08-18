@@ -30,7 +30,7 @@ jobs:
         agent_type:
           - ops-agent
         version:
-          - "2.0.1"
+          - "2.0.3"
           - latest
         # distro is the platform name in kitchen.yml
         distro:
@@ -42,9 +42,6 @@ jobs:
           - windows-2012r2-core
           - windows-20h2-core
           - windows-2004-core
-
-        exclude:
-          # invalid combos
 
     steps:
       - name: Checkout

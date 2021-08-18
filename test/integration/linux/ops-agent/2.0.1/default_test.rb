@@ -45,7 +45,7 @@ describe file('/etc/google-cloud-ops-agent/config.yaml') do
     if node['main_config'] != ''
       its('owner') { should eq 'root' }
       its('group') { should eq 'root' }
-      its('sha256sum') { should eq '802e5adb76188c88a7192dba0b4f6cfc9d22437ae7c7d98639ccc56d08f48454' }
+      its('sha256sum') { should eq 'f360e2ac0984bf33f7e158263ce5ea68c363680af80237558173284f3b47f337' }
     end
   end
 end
